@@ -18,11 +18,12 @@ class DependentObjectValue
     public function set($value = null, Closure $callback = null)
     {
         $this->value = $value;
+        $this->callback = $callback;
     }
 
     public function get()
     {
-        if ($this->callback && self instanceof $this->value) {
+        if ($this->callback && $this->value instanceof DependentObjectValue) {
             return $this->callback->__invoke($this->value->get());
         }
         return $this->value;
