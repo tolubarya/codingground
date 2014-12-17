@@ -18,7 +18,7 @@ try {
 
     /** Test controller */
     $controller = new App\Controller\UserController();
-    $controller->index();
+    $controller->indexAction();
 } catch(Exception $e) {
     echo $e . PHP_EOL;
 }
