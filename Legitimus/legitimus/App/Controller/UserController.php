@@ -19,5 +19,13 @@ class UserController extends Controller
      */
     public function indexAction()
     {
+        $userId = 1;
+        $user = App\Model\User::findByPk($userId);
+        
+        if ($user) {
+            echo json_encode($user) . PHP_EOL;
+        } else {
+            echo 'User not found' . PHP_EOL;
+        }
     }
 }
