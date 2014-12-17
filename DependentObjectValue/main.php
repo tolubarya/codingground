@@ -7,10 +7,11 @@ require_once 'DependentObjectValue.php';
 
 $x = new DependentObjectValue(10);
 $y = new DependentObjectValue($x, function($value) { return $value + 5; });
+$z = new DependentObjectValue($y, function($value) { return $value + 5; });
 
-echo "y = $y\n";
+echo "$x; $y; $z\n";
 $x->set(20);
-echo "y = $y\n";
+echo "$x; $y; $z\n";
 
 ############### Example 2 ###############
 
