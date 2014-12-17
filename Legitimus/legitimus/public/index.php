@@ -8,9 +8,11 @@ require_once __DIR__ . '/../bootstrap.php';
 $config = require APPLICATION_PATH . 'config/' . APP_ENVIRONMENT . '/main.php';
 
 /** @TODO Config must be implement the pattern Registry */
-/** @TODO Need to implement the Application */
-/** @TODO Need to implement the Routing */
-/** @TODO Need to implement the Dispatcher */
+/** @TODO Need to implement the Fw\Application */
+/** @TODO Need to implement the Fw\Http\Request */
+/** @TODO Need to implement the Fw\Http\Response */
+/** @TODO Need to implement the Fw\Router */
+/** @TODO Need to implement the Fw\Dispatcher */
 
 /** @TODO This code must be moved to the controller */
 try {
