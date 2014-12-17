@@ -6,6 +6,7 @@
 namespace App\Controller;
 
 use Fw\Mvc\Controller;
+use App\Model\User;
 
 /**
  * Class UserController
