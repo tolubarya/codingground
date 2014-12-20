@@ -1,7 +1,7 @@
 <?php
 
-require_once 'DependentObjectValue.php';
-require_once 'DependentObjectValue2.php';
+require_once 'DependentObjectValue.php'; // reactive dependency
+//require_once 'DependentObjectValue2.php'; // interactive dependency (events based)
 
 ############### Example 1 ###############
 
