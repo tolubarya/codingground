@@ -31,13 +31,13 @@ class DependentObjectValue implements DependentObjectValueInterface
         }
 
         if ($value instanceof self) {
-            EventsManager::on($value->getEvent(), [$this, 'set']);
+            EventsManager::getInstance()->on($value->getEvent(), [$this, 'set']);
         } else {
             if ($this->callback) {
                 $value = $this->callback->__invoke($value);
             }
             $this->value = $value;
-            EventsManager::fire($this->getEvent(), $this->value);
+            EventsManager::getInstance()->fire($this->getEvent(), $this->value);
         }
     }
 
