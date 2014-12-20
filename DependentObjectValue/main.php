@@ -1,7 +1,7 @@
 <?php
 
-/** @TODO Implement a class of dependent objects on events */
 require_once 'DependentObjectValue.php';
+require_once 'DependentObjectValue2.php';
 
 ############### Example 1 ###############
 
