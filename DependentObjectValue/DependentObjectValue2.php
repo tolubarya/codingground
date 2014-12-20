@@ -3,7 +3,7 @@
 require_once 'DependentObjectValueInterface.php';
 require_once 'EventsManager.php';
 
-class DependentObjectValue2 implements DependentObjectValueInterface
+class DependentObjectValue implements DependentObjectValueInterface
 {
     const EVENT_PREFIX = 'DOVEvent';
 
