@@ -5,10 +5,11 @@ require_once 'DependentObjectValue.php'; // reactive dependency
 
 ############### Example 1 ###############
 
-$x = new DependentObjectValue(10);
+$x = new DependentObjectValue();
 $y = new DependentObjectValue($x, function($value) { return $value + 5; });
 $z = new DependentObjectValue($y, function($value) { return $value + 5; });
 
+$x->set(10);
 echo "$x; $y; $z\n";
 $x->set(20);
 echo "$x; $y; $z\n";
