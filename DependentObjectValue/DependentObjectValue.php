@@ -1,6 +1,8 @@
 <?php
 
-class DependentObjectValue
+require_once 'DependentObjectValueInterface.php';
+
+class DependentObjectValue implements DependentObjectValueInterface
 {
     private $value;
     private $callback;
@@ -23,7 +25,7 @@ class DependentObjectValue
 
     public function get()
     {
-        if ($this->callback && $this->value instanceof DependentObjectValue) {
+        if ($this->callback && $this->value instanceof self) {
             return $this->callback->__invoke($this->value->get());
         }
         return $this->value;
