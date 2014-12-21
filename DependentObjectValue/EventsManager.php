@@ -1,12 +1,15 @@
 <?php
 
 require_once 'EventsManagerInterface.php';
+require_once 'SingletonTrait.php';
 
-final class EventsManager implements EventsManagerInterface
+class EventsManager implements EventsManagerInterface
 {
-    private static $register = [];
+    use SingletonTrait;
 
-    private static function getHash($handler)
+    private $register = [];
+
+    private function getHash($handler)
     {
         if ($handler instanceof Closure) {
             return spl_object_hash($handler);
@@ -17,24 +20,24 @@ final class EventsManager implements EventsManagerInterface
         }
     }
 
-    public static function fire($event, $args)
+    public function fire($event, $args)
     {
-        if (isset(self::$register[$event])) {
-            foreach (self::$register[$event] as $handler) {
+        if (isset($this->register[$event])) {
+            foreach ($this->register[$event] as $handler) {
                 call_user_func($handler, $args);
             }
         }
     }
 
-    public static function on($event, $handler)
+    public function on($event, $handler)
     {
-        $unique = self::getHash($handler);
-        self::$register[$event][$unique] = $handler;
+        $unique = $this->getHash($handler);
+        $this->register[$event][$unique] = $handler;
     }
 
-    public static function off($event, $handler)
+    public function off($event, $handler)
     {
-        $unique = self::getHash($handler);
-        unset(self::$register[$event][$unique]);
+        $unique = $this->getHash($handler);
+        unset($this->register[$event][$unique]);
     }
 }
